@@ -1,0 +1,12 @@
+os: osx
+language: generic
+osx_image: xcode9.4
+before_script:
+  - set -o pipefail
+  - pip install six
+  - brew update
+  # - brew install --HEAD libimobiledevice
+  # - brew install ideviceinstaller ios-deploy
+  - git clone https://github.com/flutter/flutter.git -b beta --depth 1
+script:
+  - .flutter/bin/flutter -v build ios --no-codesign
